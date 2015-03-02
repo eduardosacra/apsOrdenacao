@@ -36,13 +36,12 @@ public class Visao extends JFrame {
 	ArrayList<ItensDaLista> itensLista;
 	int[] qtdVetores;
 
-	ControlerVisao controler;
+	ControlerVisao controler;// controlador da Visao
 
 	public Visao(ControlerVisao controle, ArrayList<ItensDaLista> itensLista,
 			String[] nomeVetores, int[] qtdVetores) {
 		this.controler = controle;// controler
-		this.itensLista = itensLista;// itens que ficara na lista de conteuo
-										// visilvel.
+		this.itensLista = itensLista;// itens que agregara o conteudo ordenado
 		this.nomeVetores = nomeVetores;// nome dos vetores que serao utilizados
 		this.qtdVetores = qtdVetores;// tamanhos utilizados.
 
@@ -52,12 +51,8 @@ public class Visao extends JFrame {
 	}
 
 	private void inicializaComponentes() {
-		this.setTitle("Ordenação");
-		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
-		// paineis
-		/*this.pnPrincipal = new JPanel(new GridLayout(
-				this.itensLista.size() + 1, 3));*/
+		// JPanel
 		this.pnPrincipal = new JPanel(new GridLayout(2, 3));
 
 		this.pnElementos = new JPanel(new GridLayout(this.itensLista.size(), 5,
@@ -111,10 +106,12 @@ public class Visao extends JFrame {
 		pnTitulos.add(lbComparacao);
 		pnTitulos.add(lbMovimentacao);
 
+		// JScrollPane
 		js = new JScrollPane();
 		js.setViewportView(pnElementos);
 		js.setSize(859, 400);
-		
+
+		// adicionando nos paineis
 		pnPrincipal.add(pnTitulos);
 		pnPrincipal.add(js);
 
@@ -124,19 +121,19 @@ public class Visao extends JFrame {
 		pnBotoes.add(cbQuantidade);
 		pnBotoes.add(cbTipoDeVetor);
 
+		//JFrame
+		this.setDefaultCloseOperation(EXIT_ON_CLOSE);
+		this.setTitle("Medir Performance");
 		this.setLayout(new BorderLayout());
 		this.getContentPane().add(pnPrincipal, BorderLayout.CENTER);
 		this.getContentPane().add(pnBotoes, BorderLayout.SOUTH);
-
-		// this.setResizable(false);
-
-		// add(pnPrincipal);
-		this.setSize(900, 200);
-
+		this.setSize(900, 300);
+		
 	}
 
 	private void definirEvento() {
-
+		// Evento relacionado quando cliacado no botoao para realizar a
+		// ordenação
 		this.btOrdenar.addActionListener(new ActionListener() {
 
 			@Override
@@ -166,11 +163,14 @@ public class Visao extends JFrame {
 
 	}
 
+	// Aqui recebe um indice para localizar qual metodo esta sendo atualizado
+	// texto usado para noficiar o usuario sobre o status da ordenacao
 	public void situacaoAtualiza(String texto, int indice) {
 		this.itensLista.get(indice).lbSituacao.setText(texto);
 
 	}
 
+	// apenas para notificar o usuario que comecara outra ordenacao
 	public void zeraDetalhesOrdenacao() {
 		for (ItensDaLista item : this.itensLista) {
 			item.lbSituacao.setText("Pronto para uso");
@@ -180,23 +180,19 @@ public class Visao extends JFrame {
 		}
 	}
 
+	// Aqui para notificar ao usuario algum detatalhe sobre o processo de
+	// ordenacao
 	public void alertaUsuario(String texto) {
 
 		JOptionPane.showMessageDialog(this, texto);
 	}
 
+	// aqui e atualizado o tempo gasto em cada ordenacao
 	public void setTime(Calendar tempo) {
 		String time = "";// new
 							// SimpleDateFormat("hh:mm:ss:SSS").format(contato.getDataNascimento().getTimeInMillis())
 		String tempoformatado = new SimpleDateFormat("HH:mm:ss:SSS")
 				.format(tempo.getTimeInMillis());
-
-	}
-
-	public void atualizaBarraDeProgreco(int valor, int indice) {
-		// JProgressBar bar = this.itensLista.get(indice).lbSituacao;
-		// bar.setValue(bar.getValue() + valor);
-		// this.repaint();
 
 	}
 

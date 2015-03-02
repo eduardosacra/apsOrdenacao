@@ -32,7 +32,6 @@ public class QuickSort extends Ordenacao {
 
 	@Override
 	public long getComparacao() {
-		// TODO Auto-generated method stub
 		return this.comparacao;
 	}
 
@@ -55,17 +54,16 @@ public class QuickSort extends Ordenacao {
 				this.comparacao += 1;
 			}
 			
+			
 			if (esq <= dir) {
 				this.comparacao += 1;
-				
+				this.movimentacao +=1;
 				troca = v[esq];
 				v[esq] = v[dir];
 				v[dir] = troca;
 				esq = esq + 1;
 				dir = dir - 1;
 				
-			}else{
-				this.comparacao += 1;
 			}
 		}
 		if (dir > esquerda){

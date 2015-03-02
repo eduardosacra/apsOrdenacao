@@ -11,7 +11,8 @@ public class SelectionSort extends Ordenacao {
 	@Override
 	public int[] getOrdenar(int[] vetor) {
 		
-		
+		this.comparacao = 0;
+		this.movimentacao = 0;
 		return selectionSort(vetor);
 	}
 	@Override
@@ -31,27 +32,27 @@ public class SelectionSort extends Ordenacao {
 	        int  j, eleito, menor, pos;
 	        
 	 
-	        for (int i = 0; i <= 3; i++) {
-	            eleito = vetor[i];
+	        for (int i = 0; i <= vetor.length-2; i++) {
+	        	this.comparacao +=1;
+	        	eleito = vetor[i];
 	            menor = vetor[i + 1];
 	            pos = i + 1;
-	            for (j = i + 2; j <= 4; j++) {
+	            for (j = i + 2; j <= vetor.length-1; j++) {
+	            	this.comparacao +=1;
 	                if (vetor[j] < menor) {
 	                    menor = vetor[j];
 	                    pos = j;
-	                    this.comparacao +=1;
-	                    this.movimentacao +=1;
+	                    
+	                    
 	                }else{
-	                	this.comparacao +=1;	                	
+	                	this.movimentacao +=1;
 	                }
 	            }
+	            this.comparacao +=1;
 	            if (menor < eleito) {
 	                vetor[i] = vetor[pos];
-	                vetor[pos] = eleito;
-	                this.comparacao +=1;
+	                vetor[pos] = eleito;	                
 	                this.movimentacao +=1;
-                }else{
-                	this.comparacao +=1;
                 }
 	        }
 	 

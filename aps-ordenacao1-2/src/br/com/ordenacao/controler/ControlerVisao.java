@@ -42,10 +42,8 @@ public class ControlerVisao {
 		qtdTamanhovetores = this.controleModelo.getQtdDeVetores();
 		nomeVetores = this.controleModelo.getNomeVetores();
 
-		// this.itensDaLista = new
-		// ItensDaLista[controleModelo.getNomeMetodos().length];
+		//Aqui é preechido os metodos que serao aprensentados na visao
 		this.itensLista = new ArrayList();
-
 		for (String ordenacao : nomeMetodos) {
 			ItensDaLista item = new ItensDaLista();
 
@@ -63,7 +61,7 @@ public class ControlerVisao {
 
 	}
 
-	// teste
+	// Aqui e passado o alerta para o usuario
 	public void alertaUsario(String texto) {
 		this.visao.alertaUsuario(texto);
 	}
@@ -79,21 +77,13 @@ public class ControlerVisao {
 
 	}
 
-	// Aqui é feito acrecimó nas barras de rolagens
-	public void contaMovimentos(int valor, int indice) {
-		this.visao.atualizaBarraDeProgreco(valor, indice);
 
-		// JProgressBar bar = ((ItensDaLista)
-		// itensLista.get(indice)).bpProgreco;
-		// bar.setValue(bar.getValue() + valor);
-	}
 
-	// aqui atualiza os tempos
+	// aqui atualiza os tempos gastos em cada ordenacao
 	public void atualizaDetalhesOrdenacao(long tempoGasto,long comparacao,long movimentacao, int indice) {
 		SimpleDateFormat formato = new SimpleDateFormat("mm:ss.SSS");
 
 		Date tempo = new Date(tempoGasto);
-		System.out.printf("%.3f ms%n", (tempoGasto) / 1000d);
 		((ItensDaLista) itensLista.get(indice)).lbTempoGasto.setText((formato
 				.format(tempo)));
 		((ItensDaLista) itensLista.get(indice)).lbComparacao.setText(String.valueOf(comparacao));
@@ -101,13 +91,15 @@ public class ControlerVisao {
 		
 
 	}
-
+	
+	//aqui é instanciado uma visao passado como paremetro as informaçoes que serao apresentadas
 	public void getVisao() {
 		this.visao = new Visao(this, this.itensLista, this.nomeVetores,
 				this.qtdTamanhovetores);
 		this.visao.setVisible(true);
 	}
 
+	//aqui é passado qual o status de uma ordenaçao
 	public void situacaoAtualiza(String texto, int indice) {
 		this.visao.situacaoAtualiza(texto, indice);
 

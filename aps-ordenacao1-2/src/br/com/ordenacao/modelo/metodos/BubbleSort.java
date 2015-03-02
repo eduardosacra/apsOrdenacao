@@ -6,35 +6,26 @@ import br.com.ordenacao.visao.Visao;
 public class BubbleSort extends Ordenacao {
 	
 
-	public BubbleSort() {
-
-		super();
-	}
-
 	@Override
-	public int[] getOrdenar(int[] v) {
+	public int[] getOrdenar(int[] vetor) {
 		this.comparacao = 0;
 		this.movimentacao = 0;
 		int teste = 0;
-		for (int i = v.length; i >= 1; i--) {
-
+		for (int i = vetor.length; i >= 1; i--) {
+			this.comparacao += 1;
 			for (int j = 1; j < i; j++) {
-
-				if (v[j - 1] > v[j]) {
-					int aux = v[j];
-					v[j] = v[j - 1];
-					v[j - 1] = aux;
-
-					movimentacao+=1;
-					comparacao+=1;
-				}else{
-					comparacao+=1;
+				this.comparacao += 1;
+				this.movimentacao+=1;
+				if (vetor[j - 1] > vetor[j]) {
+					int aux = vetor[j];
+					vetor[j] = vetor[j - 1];
+					vetor[j - 1] = aux;
 				}
 			}
-
+			
 		}	
 		
-		return v;
+		return vetor;
 	}
 
 	@Override

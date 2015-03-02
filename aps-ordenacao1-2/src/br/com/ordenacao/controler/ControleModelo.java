@@ -30,13 +30,14 @@ public class ControleModelo {
 		// TODO Auto-generated constructor stub
 		this.controleVisao = controleVisao;
 
+		//Aqui é gerenciado os vetores
 		vetores = new ArrayList<Vetor>();
 		vetores.add(new Aleatorio());
 		vetores.add(new QuaseOrdenado());
 		vetores.add(new OrdenadoCrescente());
 		vetores.add(new OrdenadoDecrescente());
 		
-
+		//Aqui é gerenciado os metodos
 		metodos = new ArrayList();
 		metodos.add(new BubbleSort());
 		metodos.add(new QuickSort());
@@ -47,6 +48,7 @@ public class ControleModelo {
 
 	}
 
+	//este metodo retorna um vetor com o nome dos metodos.
 	public String[] getMetodos() {
 		// retorna o nome dos metodos
 		String[] nome = new String[this.metodos.size()];
@@ -61,6 +63,7 @@ public class ControleModelo {
 		return nome;
 	}
 
+	//Retorna um vetor com o nome dos vetores.
 	public String[] getNomeVetores() {
 		// retorna o nome dos vetores
 
@@ -76,6 +79,7 @@ public class ControleModelo {
 
 	}
 
+	//Aqui é feita a chamada para iniciar o processo de ordenacao
 	public void getOrdenacao(int tamanho, int qualVetor) {
 		
 		
@@ -87,69 +91,33 @@ public class ControleModelo {
 			
 			
 			int[] vetorClone = vetor.clone();
-			System.out.println("************************");
-			System.out.println("Metodo "+metodos.get(i).getNameMetodo());
-			System.out.println("Aqui é vetor "+vetores.get(qualVetor).getNomeVetor());
-			System.out.println("nao ordenado");
-			for (int j = 0; j < vetorClone.length; j++) {
-				System.out.print(vetorClone[j]+"  ");
-			}
-			System.out.println();
-			System.out.println("************************");
-			/*String vertorDeserdenado ="";
-			for (int j = 0; j < vetorClone.length; j++) {
-				 vertorDeserdenado += vetorClone[j]+" ";
-			}
-			JOptionPane.showMessageDialog(null, "Vertor Desordenado: n"
-				+vertorDeserdenado);*/
 			
+
 			this.controleVisao.situacaoAtualiza("Processando",i);
 			this.controleVisao.alertaUsario(
 					"Processando: \n Metodo: "+metodos.get(i).getNameMetodo()+"\n"+
 			"Vetor: "+vetores.get(qualVetor).getNomeVetor()
 			);
-			//Aqui caipitura a hora atual do SO em formato long
+			//Aqui capitura a hora atual do SO em formato long
 			long tempoInicial = Calendar.getInstance().getTimeInMillis();
-			metodos.get(i).getOrdenar(vetorClone);
+			metodos.get(i).getOrdenar(vetorClone);//realiza o processo de ordenacao
 			long tempoFinal = Calendar.getInstance().getTimeInMillis();
 			//aqui faz a diferenca dos valores para ser calculado o perido de processamento
 			long diferenca =  tempoFinal - tempoInicial;
-			System.out.println("************************");
-			System.out.println("Metodo "+metodos.get(i).getNameMetodo());
-			System.out.println("Aqui é vetor ja foi ordenado "+vetores.get(qualVetor).getNomeVetor());
-			for (int j = 0; j < vetorClone.length; j++) {
-				System.out.print(vetorClone[j]+"  ");
-			}
-			System.out.println("************************");
-		
+					
 			this.controleVisao.atualizaDetalhesOrdenacao(diferenca,metodos.get(i).getComparacao(),metodos.get(i).getMovimentacao(), i);
 			this.controleVisao.situacaoAtualiza("Pronto",i);
 			this.controleVisao.alertaUsario("Metodo "+metodos.get(i).getNameMetodo()+" pronto.");
-			
-			/*String vetorOrdenado ="";
-			for (int k : vetorClone) {
-				vetorOrdenado += " "+String.valueOf(k);
-			}
-			
-			JOptionPane.showMessageDialog(null, "Vetor Ordenado: \n"
-			+ vetorOrdenado);*/
-			
 		}
-		
-		
-
 	}
 
-	//esse é chamado quando o modelo faz uma troca para movimentar o array de barra de progreço
-	public void contaMovimentos(int movimentos ) {
-		controleVisao.contaMovimentos(movimentos,this.indiceDoMetodoUtilizado);
-	}
-
+	//aqui retorna um vetor com as quantidades utilizada para definir o tamanho do vetor.
 	public int[] getQtdDeVetores() {
 		
 		return Vetor.qtdVetores;
 	}
 
+	//aqui é feita a chamada para aletar o usuario que foi feita uma atualição necessaria de aviso
 	public void alertaUsuario(String texto) {
 		this.controleVisao.alertaUsario(texto);
 	}
