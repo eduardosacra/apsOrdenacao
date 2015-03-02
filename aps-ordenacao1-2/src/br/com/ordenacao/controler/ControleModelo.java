@@ -8,8 +8,8 @@ import javax.swing.JOptionPane;
 import br.com.ordenacao.modelo.metodos.BubbleSort;
 import br.com.ordenacao.modelo.metodos.Ordenacao;
 import br.com.ordenacao.modelo.metodos.QuickSort;
-import br.com.ordenacao.modelo.metodos.teste1;
-import br.com.ordenacao.modelo.metodos.teste2;
+import br.com.ordenacao.modelo.metodos.InsertionSort;
+import br.com.ordenacao.modelo.metodos.SelectionSort;
 import br.com.ordenacao.modelo.vetor.Aleatorio;
 import br.com.ordenacao.modelo.vetor.OrdenadoCrescente;
 import br.com.ordenacao.modelo.vetor.OrdenadoDecrescente;
@@ -40,8 +40,8 @@ public class ControleModelo {
 		metodos = new ArrayList();
 		metodos.add(new BubbleSort());
 		metodos.add(new QuickSort());
-		metodos.add(new teste1());
-		metodos.add(new teste2());
+		metodos.add(new InsertionSort());
+		metodos.add(new SelectionSort());
 		
 		
 
