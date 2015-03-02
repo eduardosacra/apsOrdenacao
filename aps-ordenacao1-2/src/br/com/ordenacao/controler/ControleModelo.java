@@ -33,7 +33,6 @@ public class ControleModelo {
 		//Aqui é gerenciado os vetores
 		vetores = new ArrayList<Vetor>();
 		vetores.add(new Aleatorio());
-		vetores.add(new QuaseOrdenado());
 		vetores.add(new OrdenadoCrescente());
 		vetores.add(new OrdenadoDecrescente());
 		
@@ -84,6 +83,11 @@ public class ControleModelo {
 		
 		
 		int[] vetor = vetores.get(qualVetor).getVetor(tamanho);	
+		System.out.println("********");
+		for (int i = 0; i < vetor.length; i++) {
+			System.out.print(vetor[i]+" ");
+		}
+		System.out.println("********");
 		
 		
 		for (int i = 0; i < metodos.size(); i++) {

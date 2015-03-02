@@ -188,12 +188,12 @@ public class Visao extends JFrame {
 	}
 
 	// aqui e atualizado o tempo gasto em cada ordenacao
-	public void setTime(Calendar tempo) {
+	/*public void setTime(Calendar tempo) {
 		String time = "";// new
 							// SimpleDateFormat("hh:mm:ss:SSS").format(contato.getDataNascimento().getTimeInMillis())
-		String tempoformatado = new SimpleDateFormat("HH:mm:ss:SSS")
+		String tempoformatado = new SimpleDateFormat("HH:mm:ss:SSSSSSS")
 				.format(tempo.getTimeInMillis());
 
-	}
+	}*/
 
 }

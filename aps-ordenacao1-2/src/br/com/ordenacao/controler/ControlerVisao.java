@@ -81,7 +81,7 @@ public class ControlerVisao {
 
 	// aqui atualiza os tempos gastos em cada ordenacao
 	public void atualizaDetalhesOrdenacao(long tempoGasto,long comparacao,long movimentacao, int indice) {
-		SimpleDateFormat formato = new SimpleDateFormat("mm:ss.SSS");
+		SimpleDateFormat formato = new SimpleDateFormat("mm:ss.SSSSSS");
 
 		Date tempo = new Date(tempoGasto);
 		((ItensDaLista) itensLista.get(indice)).lbTempoGasto.setText((formato

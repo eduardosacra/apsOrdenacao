@@ -28,23 +28,20 @@ public class InsertionSort extends Ordenacao {
 	}
 	
 	public int[] insertionSort(int[] vetor) {  
-	
-	      
-	        int  j, eleito;       
-	 
-	        for (int i = 1; i <= vetor.length-1; i++) {
+		int i, j, eleito;
+		 for (i = 1; i <= vetor.length-1; i++) {
 	            eleito = vetor[i];
 	            j = i - 1;
-	            this.comparacao +=1;
+	            this.comparacao+=1;
 	            while (j >= 0 && vetor[j] > eleito) {
 	                vetor[j + 1] = vetor[j];
 	                j = j - 1;
-	               
-	                this.movimentacao +=1;
+	                this.movimentacao+=1;
+	                this.comparacao+=1;
 	            }
 	            vetor[j + 1] = eleito;
 	        }
-	 
+	
 	        return vetor;
 	    }
 	

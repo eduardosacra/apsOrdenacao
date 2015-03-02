@@ -8,11 +8,11 @@ public class Aleatorio implements Vetor {
 	private int[] gereVetorAleatorioNaoRepetido(int tamanho) {
 		int[] vetor = new int[tamanho];
 		Random rd = new Random();
-
+		int valor=0;	
 		for (int i = 0; i < vetor.length; i++) {
-			int valor=0;			
-			valor = rd.nextInt(tamanho);
-			vetor[valor]=i;
+					
+			
+			vetor[i]=rd.nextInt(tamanho);
 		}
 		
 		return vetor;
