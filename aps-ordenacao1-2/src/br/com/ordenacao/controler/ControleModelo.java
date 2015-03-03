@@ -3,8 +3,6 @@ package br.com.ordenacao.controler;
 import java.util.ArrayList;
 import java.util.Calendar;
 
-import javax.swing.JOptionPane;
-
 import br.com.ordenacao.modelo.metodos.BubbleSort;
 import br.com.ordenacao.modelo.metodos.Ordenacao;
 import br.com.ordenacao.modelo.metodos.QuickSort;
@@ -13,9 +11,7 @@ import br.com.ordenacao.modelo.metodos.SelectionSort;
 import br.com.ordenacao.modelo.vetor.Aleatorio;
 import br.com.ordenacao.modelo.vetor.OrdenadoCrescente;
 import br.com.ordenacao.modelo.vetor.OrdenadoDecrescente;
-import br.com.ordenacao.modelo.vetor.QuaseOrdenado;
 import br.com.ordenacao.modelo.vetor.Vetor;
-import br.com.ordenacao.visao.Visao;
 
 public class ControleModelo {
 
@@ -83,11 +79,6 @@ public class ControleModelo {
 		
 		
 		int[] vetor = vetores.get(qualVetor).getVetor(tamanho);	
-		System.out.println("********");
-		for (int i = 0; i < vetor.length; i++) {
-			System.out.print(vetor[i]+" ");
-		}
-		System.out.println("********");
 		
 		
 		for (int i = 0; i < metodos.size(); i++) {
